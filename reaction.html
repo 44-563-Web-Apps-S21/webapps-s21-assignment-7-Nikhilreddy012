@@ -25,31 +25,29 @@
   
   <p id="target">Your Time</p>
   <p id="countdown">Count</p>
-  
-  <script> 
-  let myTime = undefined
+
+  <script>
+     let myTime = undefined
   function recordReact(){
       myTime = Date.now()
       console.log(myTime)
   }
   function startTime(){
+    let max = 10
+    let min = 2
+    countdown = Math.floor(Math.random() * (max - min + 1) + min); 
     target = document.getElementById("target")
-    for(i=3; i>=0; i--) {
+    for(i=countdown; i>=0; i--) {
       setTimeout(function(i){
         document.getElementById("countdown").innerHTML = i;
-      }, (3-i)*1000,i)
+      }, (countdown-i)*1000,i)
     }
     setTimeout(() => {
       if(myTime == undefined){
         target.innerHTML = "Too Slow"
-      } else {
-            let buttonTime = Date.now()
-            diff = buttonTime-myTime
-            target.innerHTML = "Time was "+ diff
       }
-    }, 3000)
+    }, countdown*1000)
   }
   </script>
-
 </body>
 </html>
