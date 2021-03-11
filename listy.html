@@ -51,7 +51,20 @@
         element.setAttribute("class","listy")
 		element.style.color = "orange"
 
-        listyItems   = document.getElementsByClassName("listy");        
+        listyItems   = document.getElementsByClassName("listy"); 
+        if(listyItems.length > 8){
+            for (const i of listyItems) {
+                if(i.innerHTML == value){
+                    flag = 1
+                i.remove()
+                console.log(i)
+                break
+                }
+            }
+            if(flag == 0){
+            listyItems[0].remove();
+        }
+        }       
 		/* add it to the container */
 		document.getElementById('target').appendChild(element)
 		
